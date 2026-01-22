@@ -18,6 +18,11 @@ Este projeto foi criado com o objetivo de **consolidar conceitos iniciais de Spr
 
 ---
 
+## 🎯 Objetivo do Projeto
+
+Projeto desenvolvido para praticar conceitos iniciais de Spring Boot, API REST e JPA.
+
+---
 ## 🧱 Arquitetura do Projeto
 
 O projeto segue o padrão de **arquitetura em camadas**, separando responsabilidades:
@@ -68,8 +73,8 @@ A API possui **exceções customizadas** para melhorar a comunicação de erros:
 Os endpoints foram testados utilizando o **Postman**, garantindo o correto funcionamento da API.
 
 ### ➕ Criar Task
-[![Criar Task](postman_tests/createTask_1.png)](postman_tests/createTask_1.png.png)
-[![Criar Task](postman_tests/createTask_2.png)](postman_tests/createTask_2.png.png)
+[![Criar Task](postman_tests/createTask_1.png)](postman_tests/createTask_1.png)
+[![Criar Task](postman_tests/createTask_2.png)](postman_tests/createTask_2.png)
 
 ### 📄 Listar Tasks
 [![Listar Tasks](postman_tests/getAllTasks.png)](postman_tests/getAllTasks.png)
