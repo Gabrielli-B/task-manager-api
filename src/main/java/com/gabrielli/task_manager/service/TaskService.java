@@ -1,5 +1,7 @@
 package com.gabrielli.task_manager.service;
 
+import com.gabrielli.task_manager.exception.EmptyTaskListException;
+import com.gabrielli.task_manager.exception.TaskNotFoundException;
 import com.gabrielli.task_manager.model.Task;
 import com.gabrielli.task_manager.repository.TaskRepository;
 import org.springframework.stereotype.Service;
@@ -18,7 +20,11 @@ public class TaskService {
 
     //listar tarefas
     public List<Task> getAllTasks(){
-        return taskRepository.findAll();
+        List<Task> list = taskRepository.findAll();
+        if(list.isEmpty()){
+            throw new EmptyTaskListException();
+        }
+        return list;
     }
     //criar
     public Task createTask(Task task){
@@ -30,11 +36,11 @@ public class TaskService {
     }
     //buscar pelo id
     public Task searchTask(Long id){
-        return taskRepository.findById(id).orElse(null);
+        return taskRepository.findById(id).orElseThrow(()->new TaskNotFoundException(id));
     }
     //atualizar tarefa
     public Task updateTask(Long id,Boolean newStatus){
-        Task task = taskRepository.findById(id).orElse(null);
+        Task task = taskRepository.findById(id).orElseThrow(()->new TaskNotFoundException(id));
         task.setCompleted(newStatus);
         return taskRepository.save(task);
     }
