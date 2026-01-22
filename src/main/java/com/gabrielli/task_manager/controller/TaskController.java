@@ -20,8 +20,8 @@ public class TaskController {
     @GetMapping
     public List<Task> getAllTasks(){return taskService.getAllTasks();}
 
-    @GetMapping
-    public Task searchTask(Long id){return taskService.searchTask(id);}
+    @GetMapping({"/id"})
+    public Task searchTask(@PathVariable Long id){return taskService.searchTask(id);}
 
     @PostMapping
     public Task createTask(@RequestBody Task task){return taskService.createTask(task);}
