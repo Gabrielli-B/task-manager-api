@@ -20,8 +20,11 @@ public class TaskController {
     @GetMapping
     public List<Task> getAllTasks(){return taskService.getAllTasks();}
 
-    @GetMapping({"/id"})
+    @GetMapping({"/{id}"})
     public Task searchTask(@PathVariable Long id){return taskService.searchTask(id);}
+
+    @GetMapping({"/status/{status}"})
+    public List<Task> searchTasksStatus(@PathVariable Boolean status){return taskService.searchTasksStatus(status);}
 
     @PostMapping
     public Task createTask(@RequestBody Task task){return taskService.createTask(task);}

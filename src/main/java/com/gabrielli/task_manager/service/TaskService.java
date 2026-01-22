@@ -4,6 +4,7 @@ import com.gabrielli.task_manager.model.Task;
 import com.gabrielli.task_manager.repository.TaskRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -36,5 +37,9 @@ public class TaskService {
         Task task = taskRepository.findById(id).orElse(null);
         task.setCompleted(newStatus);
         return taskRepository.save(task);
+    }
+    //listar tarefas por status
+    public List<Task> searchTasksStatus(Boolean status){
+        return taskRepository.findByCompleted(status);
     }
 }
