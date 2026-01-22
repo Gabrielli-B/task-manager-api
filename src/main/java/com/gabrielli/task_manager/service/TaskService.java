@@ -31,4 +31,10 @@ public class TaskService {
     public Task searchTask(Long id){
         return taskRepository.findById(id).orElse(null);
     }
+    //atualizar tarefa
+    public Task updateTask(Long id,Boolean newStatus){
+        Task task = taskRepository.findById(id).orElse(null);
+        task.setCompleted(newStatus);
+        return taskRepository.save(task);
+    }
 }

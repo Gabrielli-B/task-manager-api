@@ -26,6 +26,9 @@ public class TaskController {
     @PostMapping
     public Task createTask(@RequestBody Task task){return taskService.createTask(task);}
 
+    @PutMapping("/{id}")
+    public Task updateTask(@PathVariable Long id, @RequestBody Boolean newStatus){return taskService.updateTask(id,newStatus);}
+
     @DeleteMapping("/{id}")
     public void deleteTask(@PathVariable Long id){taskService.deleteTask(id);}
 
